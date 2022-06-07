@@ -1,0 +1,32 @@
+@import "font-titles";
+@import "layout";
+@import "navigation";
+@import "toc";
+@import "callout";
+@import "breadcrumb";
+@import "prism-theme";
+@import "code";
+@import "announcement";
+@import "page-search";
+// seven-minute-tabs.scss
+@import "index";
+
+///////////////
+// overrides //
+///////////////
+
+.elv-hero,.elv-hero:hover{background-color:transparent}
+
+.elv-hero>div{width:42.95774646vh;height:42.95774646vh;background:conic-gradient(#b78cf7 40%,#ff7c94 0 70%,#ffcf0d 0);border-radius:50%}
+.elv-header-default .elv-hero>div{position:relative;background-color:transparent;z-index:1}
+.elv-header-docs .elv-hero>div{width:auto;height:3em}
+@media(min-width:43.75em){.elv-header-docs .elv-hero>div{width:4.303125em;height:4.303125em}}
+
+// delete the h1 elv-hed
+// adjust elv-nav-header margin-top to about 15px
+
+
+// displaying records...
+dl{display:flex;flex-flow:row wrap;border:solid #222;border-width:1px 1px 0 0}
+dt{flex-basis:20%;padding:2px 4px;background:#222;text-align:right;color:#fff}
+dd{flex-basis:70%;flex-grow:1;margin:0;padding:2px 4px;border-bottom:1px solid #222}

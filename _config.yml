@@ -1,0 +1,33 @@
+title: DLF Metadata Assessment Working Group
+
+baseurl: /dlf-mawg-new-theme
+
+collections:
+  metadata_application_profiles:
+    output: true
+    permalink: /projects/metadata-application-profiles/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: "assets"
+      type: "pages"
+    values:
+      layout: null
+  - scope:
+      path: ""
+      type: "metadata_application_profiles"
+    values:
+      layout: "metadata-application-profile"
+
+exclude:
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - 'README.md'
+
+sass:
+  style: compressed
