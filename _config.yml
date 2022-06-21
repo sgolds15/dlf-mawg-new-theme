@@ -6,6 +6,9 @@ collections:
   metadata_application_profiles:
     output: true
     permalink: /projects/metadata-application-profiles/:title/
+  tools:
+    output: true
+    permalink: /projects/tools/:title/
 
 defaults:
   - scope:
@@ -23,6 +26,11 @@ defaults:
       type: "metadata_application_profiles"
     values:
       layout: "metadata-application-profile"
+  - scope:
+      path: ""
+      type: "tools"
+    values:
+      layout: "tool"
 
 exclude:
   - 'Gemfile'
