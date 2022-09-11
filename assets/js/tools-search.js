@@ -9,8 +9,8 @@ const allTools = [{% for t in site.tools %}
     "source_code": "{{ t.source_code }}",
     "creator": "{{ t.creator }}",
     "type": "{{ t.type }}",
-    "category_broad": "{{ t.category_broad }}",
-    "category_broad_informal": "{{ t.category_broad_informal }}",
+    "category_broad": [{% for category in t.category_broad %}"{{ category }}"{% unless forloop.last %}, {% endunless %}{% endfor %}],
+    "category_broad_informal": [{% for category in t.category_broad_informal %}"{{ category }}"{% unless forloop.last %}, {% endunless %}{% endfor %}],
     "use_case": "{{ t.use_case }}",
     "interface": "{{ t.interface }}",
     "dependencies": "{{ t.dependencies }}",
@@ -24,6 +24,15 @@ const allTools = [{% for t in site.tools %}
 ];
 
 var search, results = [];
+
+var filterCategoriesSelect = document.getElementById("toolCategories");
+
+var rebuildAndRerunSearch = function() {
+  rebuildSearchIndex();
+  searchTools();
+};
+
+filterCategoriesSelect.onchange = rebuildAndRerunSearch;
 
 var rebuildSearchIndex = function() {
   search = new JsSearch.Search('title');
@@ -40,7 +49,7 @@ var rebuildSearchIndex = function() {
   search.addIndex('cost');
   search.addIndex('metadata_standard');
   search.addIndex('file_format');
-  search.addDocuments(allTools);
+  search.addDocuments(filterCategoriesSelect.value != "" ? allTools.filter(t => t.category_broad.includes(filterCategoriesSelect.value)) : allTools);
 };
 
 var indexedToolsTable = document.getElementById('indexedToolsTable');
@@ -65,7 +74,7 @@ var updateToolsTable = function(Tools) {
     abstractColumn.innerHTML = Tool.abstract;
 
     var categoryColumn = document.createElement('td');
-    categoryColumn.innerHTML = Tool.category_broad;
+    categoryColumn.innerHTML = Tool.category_broad.join("; ");
 
     var metadataStandardColumn = document.createElement('td');
     metadataStandardColumn.innerHTML = Tool.metadata_standard;
@@ -86,7 +95,7 @@ var update = function() {
   } else if (!!searchInput.value) {
     updateToolsTable([]);
   } else {
-    updateToolsTable(allTools);
+    updateToolsTable(filterCategoriesSelect.value != "" ? allTools.filter(t => t.category_broad.includes(filterCategoriesSelect.value)) : allTools);
   }
 };
 
