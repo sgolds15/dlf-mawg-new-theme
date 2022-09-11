@@ -30,10 +30,10 @@
     <header class="elv-layout elv-layout-full elv-header elv-header-{% if page.url == "/" %}default{% else %}docs{% endif %}">
       <div class="elv-header-c">
         <a href="{{ "/" | relative_url }}" class="elv-hero elv-externalexempt">
-          <div></div>
+          <img src="{{ "/assets/img/dlf-dla-mwg-logo.png" | relative_url }}" alt="DLF Digital Library Assessment Metadata Working Group">
           <span class="sr-only">DLF</span>
         </a>
-        <h1 class="elv-hed">{{ title }}</h1>
+        <h1 class="elv-hed">{{ site.title }}</h1>
         <div class="elv-nav-header">
           <ul class="elv-nav lo">
             {% for item in site.data.nav.tree %}

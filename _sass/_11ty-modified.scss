@@ -17,14 +17,7 @@
 
 .elv-hero,.elv-hero:hover{background-color:transparent}
 
-.elv-hero>div{width:42.95774646vh;height:42.95774646vh;background:conic-gradient(#b78cf7 40%,#ff7c94 0 70%,#ffcf0d 0);border-radius:50%}
-.elv-header-default .elv-hero>div{position:relative;background-color:transparent;z-index:1}
-.elv-header-docs .elv-hero>div{width:auto;height:3em}
-@media(min-width:43.75em){.elv-header-docs .elv-hero>div{width:4.303125em;height:4.303125em}}
-
-// delete the h1 elv-hed
-// adjust elv-nav-header margin-top to about 15px
-
+.elv-hed{margin-top:0.75em}
 
 // displaying records...
 dl{display:flex;flex-flow:row wrap;border:solid #222;border-width:1px 1px 0 0}
