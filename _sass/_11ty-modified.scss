@@ -19,6 +19,8 @@
 
 .elv-hed{margin-top:0.75em}
 
+.elv-toc-list li{font-size:inherit}
+
 // displaying records...
 dl{display:flex;flex-flow:row wrap;border:solid #222;border-width:1px 1px 0 0}
 dt{flex-basis:20%;padding:2px 4px;background:#222;text-align:right;color:#fff}
