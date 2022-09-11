@@ -71,7 +71,7 @@ var updateToolsTable = function(Tools) {
     titleColumn.appendChild(recordLink);
 
     var abstractColumn = document.createElement('td');
-    abstractColumn.innerHTML = Tool.abstract;
+    abstractColumn.innerHTML = Tool.abstract.split(" ").length > 23 ? Tool.abstract.split(" ").slice(0, 23).join(" ") + " …" : Tool.abstract;
 
     var categoryColumn = document.createElement('td');
     categoryColumn.innerHTML = Tool.category_broad.join("; ");
